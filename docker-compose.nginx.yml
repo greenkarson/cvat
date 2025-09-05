@@ -1,0 +1,14 @@
+networks:
+  cvat_nginx:
+
+services:
+  cvat_nginx:
+    image: nginx:1.29.1-alpine3.22-slim
+    container_name: cvat_nginx
+    restart: always
+    networks:
+      - cvat_nginx
+    ports:
+      - 8088:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
